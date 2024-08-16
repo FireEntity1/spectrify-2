@@ -15,7 +15,7 @@ var high2: float = 0
 var easing = 1
 
 func _ready():
-	$player.play(27)
+	pass
 
 
 
@@ -48,3 +48,25 @@ func _process(delta):
 
 func _physics_process(delta):
 	frame += 1
+
+func load_mp3(path):
+	var file = FileAccess.open(path, FileAccess.READ)
+	var sound = AudioStreamMP3.new()
+	sound.data = file.get_buffer(file.get_length())
+	$player.stream = sound
+	$player.play()
+	
+func load_ogg(path):
+	$player.stream = AudioStreamOggVorbis.load_from_file(path)
+	$player.play()
+
+func _on_button_button_up():
+	$filePick.popup()
+
+
+func _on_file_pick_file_selected(path):
+	if path.ends_with(".mp3"):
+		load_mp3(path)
+	elif path.ends_with(".ogg"):
+		load_ogg(path)
+		
