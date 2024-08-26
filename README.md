@@ -14,3 +14,5 @@ A lightweight audio visualizer with support for any MP3 or OGG file!
   4. Click "load" and choose your mp3 or ogg
 
 Enjoy!
+
+![image](https://github.com/user-attachments/assets/4adb4b95-2fd4-4e08-8082-894138c7918b)
